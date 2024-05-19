@@ -1,0 +1,7 @@
+/index.html
+*/migrations/
+.vscode
+enviroment/
+db.sqlite3
+*/__pycache__/
+media/
