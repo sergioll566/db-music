@@ -4,4 +4,4 @@
 enviroment/
 db.sqlite3
 */__pycache__/
-media/
+media/audios/
