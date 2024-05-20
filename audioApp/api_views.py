@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Audio
 import os
+from server.settings import BASE_DIR
 class AudioView(APIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = [AllowAny]
@@ -17,9 +18,9 @@ class AudioView(APIView):
         for audio in raw_audios:
             audios.append({
                 'url': audio.archivo.url,
-                'abs_url': os.path.abspath( audio.archivo.url),
+                'abs_url': f'{BASE_DIR}/{audio.archivo.url}'.replace('\\','/'),
                 'portada': audio.portada.url,
-                'abs_portada': os.path.abspath( audio.portada.url),
+                'abs_portada': f'{BASE_DIR}/{audio.portada.url}'.replace('\\','/'),
                 
                 'titulo':audio.nombre,
                 'description':audio.descripción,
